@@ -1,5 +1,6 @@
 const Discord = require("discord.js");
-const prefix = process.env.PREFIX
+const prefix = process.env.PREFIX;
+const token = process.env.BOT_TOKEN;
 const { Client } = require('klasa');
 //Inicio de Klasa--------------------------------------------------------------------------------------------------
 new Client({
