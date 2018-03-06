@@ -2,9 +2,8 @@
 const { Command } = require('klasa');
 
 module.exports = class extends Command {
-
-    constructor(client) {
-        super(client, {
+    constructor(...args) {
+        super(...args, {
             name: 'purge',
             enabled: true,
             runIn: ['text', 'group'],
@@ -21,7 +20,7 @@ module.exports = class extends Command {
         });
     }
 
-    async run(msg) {
+    async run(msg, [...params]) {
         let message = await msg.channel.send(`***__Eliminando ${args} mensajes. Por favor espere, esto podría tomar un rato...__***`)
     let modLog = msg.guild.channels.find('name', 'log')
     if (msg.member.hasPermission('MANAGE_MESSAGES')) {
@@ -59,5 +58,7 @@ module.exports = class extends Command {
     return msg.guild.channels.get(modLog.id).send({
       embed
     })
+    }
+    async init() {
     }
 };
