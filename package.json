@@ -14,10 +14,11 @@
   "author": "-Fail - El Comeback",
   "license": "MIT",
   "dependencies": {
-    "opusscript": "0.0.6",
+    "opusscript": "^0.0.6",
     "discord.js": "^11.3.2",
     "simple-youtube-api": "^5.0.1",
-    "ytdl-core": "^0.20.2"
+    "ytdl-core": "^0.20.2",
+    "komada":"^0.21.1"
   },
   "devDependencies": {
     "eslint": "^4.16.0",
