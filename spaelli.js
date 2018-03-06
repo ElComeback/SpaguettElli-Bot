@@ -1,21 +1,21 @@
 const Discord = require("discord.js");
 const prefix = process.env.PREFIX
-const komada = require("komada");
-const client = new komada.Client({
-  ownerID : "285402109900226560",
-  prefix: "+se/",
-  clientOptions: {
-    fetchAllMembers: false,
-  },
-  cmdLogging: true,
-});
+const { Client } = require('klasa');
+//Inicio de Klasa--------------------------------------------------------------------------------------------------
+new Client({
+    clientOptions: {
+        fetchAllMembers: false
+    },
+    prefix: 'se/',
+    cmdEditing: true,
+    typing: true,
+    readyMessage: (client) => `${client.user.tag}, Online en ${client.guilds.size} servidores y con ${client.users.size} usuarios`
+}).login('process.env.BOT_TOKEN');
 
 client.on("ready", () => {
    console.log("Estoy Online!");
 });
- 
-
-
+ //Ping--------------------------------------------------------------------------------------------------------------
 client.on('message', message => {
     if (message.author.bot) return;
     if (!message.content.startsWith(prefix)) return;
@@ -23,6 +23,4 @@ client.on('message', message => {
     if (message.content.startsWith(prefix + 'ping')) {
         message.channel.sendMessage('Pong! Your ping is `' + `${Date.now() - message.createdTimestamp}` + ' ms`');
     }
-});
-
-client.login(process.env.BOT_TOKEN);     
+});   
