@@ -11,11 +11,11 @@ module.exports = class extends Command {
             cooldown: 5,
             aliases: ['pg'],
             permLevel: 6,
-            botPerms: ['MANAGE_MESSAGES', 'SEND_MESSAGES'],
+            botPerms: ['MANAGE_MESSAGES'],
             requiredSettings: [],
             description: 'Elimina una cantidad de mensajes dado por el usuario',
             quotedStringSupport: false,
-            usage: '',
+            usage: '<amount:int{2,100}>',
             usageDelim: undefined,
             extendedHelp: 'No extended help available.'
         });
