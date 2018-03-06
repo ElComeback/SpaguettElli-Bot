@@ -11,7 +11,7 @@ new Client({
     cmdEditing: true,
     typing: true,
     readyMessage: (client) => `${client.user.tag}, Online en ${client.guilds.size} servidores y con ${client.users.size} usuarios`
-}).login('process.env.BOT_TOKEN');
+}).login('token');
 
 client.on("ready", () => {
    console.log("Estoy Online!");
