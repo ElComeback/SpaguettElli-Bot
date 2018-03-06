@@ -1,0 +1,32 @@
+{
+  "name": "SpaguettElli-Bot",
+  "version": "1.0.0",
+  "description": "Bot para Discord",
+  "main": "spaelli.js",
+  "scripts": {
+    "start": "node spaelli.js"
+  },
+  "keywords": [
+    "discord",
+    "bot",
+    "discordbot"
+  ],
+  "author": "-Fail - El Comeback",
+  "license": "MIT",
+  "dependencies": {
+    "opusscript": "0.0.6",
+    "discord.js": "^11.3.2",
+    "simple-youtube-api": "^5.0.1",
+    "ytdl-core": "^0.20.2"
+  },
+  "devDependencies": {
+    "eslint": "^4.16.0",
+    "eslint-config-aqua": "^2.0.1"
+  },
+  "eslintConfig": {
+    "extends": "aqua",
+    "rules": {
+      "no-console": "0"
+    }
+  }
+}
