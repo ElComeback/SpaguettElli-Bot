@@ -16,7 +16,6 @@ module.exports = class extends Command {
             description: 'Elimina una cantidad de mensajes dado por el usuario',
             quotedStringSupport: false,
             usage: '',
-            usageString: ['se/purge [cantidad de mensajes]', 'se/pg [cantidad de mensajes]'],
             usageDelim: undefined,
             extendedHelp: 'No extended help available.'
         });
@@ -61,9 +60,4 @@ module.exports = class extends Command {
       embed
     })
     }
-
-    async init() {
-        // You can optionally define this method which will be run when the bot starts (after login, so discord data is available via this.client)
-    }
-
 };
