@@ -10,6 +10,6 @@ new Client({
     prefix: 'se/',
     cmdEditing: true,
     typing: true,
-    language: 'es-MX',
+    laguage: ('es-MX'),
     readyMessage: (client) => `${client.user.tag}, Online en ${client.guilds.size} servidores y con ${client.users.size} usuarios`
 }).login(token);
