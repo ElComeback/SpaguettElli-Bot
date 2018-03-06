@@ -8,9 +8,7 @@ new Client({
         fetchAllMembers: false
     },
     prefix: 'se/',
-    language: 'es',
     cmdEditing: true,
     typing: true,
-    ignoreBots: true,
     readyMessage: (client) => `${client.user.tag}, Online en ${client.guilds.size} servidores y con ${client.users.size} usuarios`
 }).login(token);
