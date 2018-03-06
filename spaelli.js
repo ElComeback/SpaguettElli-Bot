@@ -1,10 +1,19 @@
 const Discord = require("discord.js");
-const client = new Discord.Client();
 const prefix = process.env.PREFIX
+const komada = require("komada");
+const client = new komada.Client({
+  ownerID : "285402109900226560",
+  prefix: "+se/",
+  clientOptions: {
+    fetchAllMembers: false,
+  },
+  cmdLogging: true,
+});
 
 client.on("ready", () => {
    console.log("Estoy Online!");
 });
+ 
 
 
 client.on('message', message => {
