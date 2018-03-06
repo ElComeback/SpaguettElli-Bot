@@ -1,5 +1,6 @@
 
 const { Command } = require('klasa');
+const Discord = require('discord.js');
 
 module.exports = class extends Command {
     constructor(...args) {
@@ -20,43 +21,23 @@ module.exports = class extends Command {
         });
     }
 
-    async run(msg, [...params]) {
+    async run(msg, [amount]) {
+        return msg.channel.bulkDelete(amount, true)
         let message = await msg.channel.send(`***__Eliminando ${args} mensajes. Por favor espere, esto podría tomar un rato...__***`)
-    let modLog = msg.guild.channels.find('name', 'log')
-    if (msg.member.hasPermission('MANAGE_MESSAGES')) {
-      if (args) {
-        if (!isNaN(args)) {
-          msg.channel.fetchMessages({
-            before: msg.id,
-            limit: args
-          }).then(messages => {
-            msg.channel.bulkDelete(messages);
-            msg.channel.send(`:wastebasket: | **__${args} mensajes eliminados correctamente!__**`);
-            message.delete();
-          }).catch(console.log);
-          msg.delete();
-        } else {
-          msg.channel.send("Eso no es un número.");
-          return;
-        }
-      } else {
-        msg.channel.send("Necesito saber cuántos mensajes quieres que borre...");
-        return;
-      }
-    } else {
-      msg.reply("Lo siento, no puedo tomar esta orden de tí, revisa tener los permisos correctos");
-    }
-
-    const embed = new Discord.RichEmbed()
-      .setAuthor(`${msg.author.tag}`, `${msg.author.avatarURL}`)
-      .setTimestamp()
-      .addField('Action:', '***purge***')
-      .addField('Purged By:', `${msg.author}`)
-      .addField('Purged Messages:', `**${args}**`)
-      .setColor('RANDOM')
-      .setFooter(`ServerID: ${msg.guild.id}`)
-    return msg.guild.channels.get(modLog.id).send({
-      embed
+        let modLog = msg.guild.channels.find('name', 'log')
+        msg.channel.send(`:wastebasket: | **__${args} mensajes eliminados correctamente!__**`);
+        message.delete();
+        msg.delete();
+        const embed = new Discord.RichEmbed()
+       .setAuthor(`${msg.author.tag}`, `${msg.author.avatarURL}`)
+       .setTimestamp()
+       .addField('Action:', '***purge***')
+       .addField('Purged By:', `${msg.author}`)
+       .addField('Purged Messages:', `**${args}**`)
+       .setColor('RANDOM')
+       .setFooter(`ServerID: ${msg.guild.id}`)
+       return msg.guild.channels.get(modLog.id).send({
+       embed
     })
     }
     async init() {
