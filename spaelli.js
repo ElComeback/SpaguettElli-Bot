@@ -8,6 +8,7 @@ new Client({
         fetchAllMembers: false
     },
     prefix: 'se/',
+    language: 'es-MX',
     cmdEditing: true,
     typing: true,
     readyMessage: (client) => `${client.user.tag}, Online en ${client.guilds.size} servidores y con ${client.users.size} usuarios`
