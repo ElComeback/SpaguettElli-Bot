@@ -9,4 +9,4 @@ client.on("message", (message) => {
     message.channel.send("pong!");
   }
 });
-client.login("TOKEN");    
+client.login(process.env.BOT_TOKEN);     
