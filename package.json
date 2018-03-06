@@ -18,7 +18,7 @@
     "discord.js": "^11.3.2",
     "simple-youtube-api": "^5.0.1",
     "ytdl-core": "^0.20.2",
-    "komada":"^0.21.1"
+    "klasa":"^0.4.0"
   },
   "devDependencies": {
     "eslint": "^4.16.0",
