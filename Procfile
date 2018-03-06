@@ -1,1 +1,1 @@
-worker: node puck.js
+worker: node spaelli.js
