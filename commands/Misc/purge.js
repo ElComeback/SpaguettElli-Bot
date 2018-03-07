@@ -26,13 +26,13 @@ module.exports = class extends Command {
         msg.delete();
         
         const embed = new this.client.methods.Embed()
-       .setTimestamp()
-       .addField('Action:', '***purge***')
+       .addTitle('Action:', '***purge***')
        .addField('Purged By:', `${this.msg.author.username}`)
        .addField('Purged Messages:', `**${amount}**`)
        .addField('Purged By:', `${this.msg.author.username}`, true)
        .addField('Purged Messages:', `**${amount}**`, true)
        .setColor('RANDOM')
+       .setTimestamp()
        .setFooter(`ServerID:, ${msg.guild.id}`)
        .setFooter(`ServerID: ${msg.guild.id}`)
        return this.client.channels.get('399062303980519434').send({ embed })
