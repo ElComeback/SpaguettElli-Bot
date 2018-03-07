@@ -34,7 +34,7 @@ module.exports = class extends Command {
        .addField('Purged By:', this.msg.author.name)
        .addField('Purged Messages:', `**${amount}**`)
        .setColor('RANDOM')
-       .setFooter(`ServerID:`, this.guild.id)
+       .setFooter(`ServerID:, ${msg.guild.id}`)
        return this.client.channels.get(modlogChannel).send({ embed })
     }
     async init() {
