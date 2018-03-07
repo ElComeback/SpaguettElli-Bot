@@ -32,7 +32,8 @@ module.exports = class extends Command {
        .addField('Purged Messages:', `**${amount}**`)
        .setColor('RANDOM')
        .setFooter(`ServerID: ${msg.guild.id}`)
-      ) return msg.modLog.send({embed})
+       ); 
+       return display.run(await msg.modLog.send())
     }
     async init() {
     }
