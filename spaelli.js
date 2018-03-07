@@ -15,9 +15,6 @@ const client = new Client({
     readyMessage: (client) => `${client.user.tag}, Online en ${client.guilds.size} servidores y con ${client.users.size} usuarios`
 }).login(token);
 //Inicio de PermLevels-----------------------------------------------------------------------------------------------
-client.eventArray = []
-client.usersArray = client.users.array()
-
 client.permissionLevels = new PermissionLevels()
   // Cualquiera puede usar este comando
   .add(0, () => true)
