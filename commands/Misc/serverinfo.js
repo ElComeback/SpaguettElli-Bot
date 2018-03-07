@@ -36,7 +36,7 @@ module.exports = class extends Command {
     .addField('Roles', server.roles.size, true)
     .setColor(0x00FF00)
     
-   .send({ embed })
+   message.channel.send({ embed });
 
     }
 
