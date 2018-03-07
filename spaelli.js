@@ -1,5 +1,6 @@
 const token = process.env.BOT_TOKEN;
 const {Client, PermissionLevels} = require('klasa');
+const config = require('./config.json');
 //Inicio de Klasa--------------------------------------------------------------------------------------------------
 const client = new Client({
     clientOptions: {
@@ -15,18 +16,14 @@ const client = new Client({
     readyMessage: (client) => `${client.user.tag}, Online en ${client.guilds.size} servidores y con ${client.users.size} usuarios`
 }).login(token);
 //Inicio de PermLevels-----------------------------------------------------------------------------------------------
-client.permissionLevels = new PermissionLevels()
-  // Cualquiera puede usar este comando
-  .add(0, () => true)
-  // Miembros que sean mods en el servidor
-  .add(7, (client, msg) => {
-    if (!msg.guild) return false
-    if (msg.member.roles.get(msg.guildConfigs.modRole)) return true
-    return false
-  })
-  // Miembros que son owners en el servidor
-  .add(8, (client, msg) => msg.guild && msg.member === msg.guild.owner)
-  // Bot Developers
-  .add(9, (client, msg) => client.botDevs.includes(msg.author.id))
-  // Deja al creador del bot usar comandos solo para el creador del bot
-.add(10, (client, msg) => msg.author === client.owner)
+config.permissionLevels = new PermissionLevels()
+    .addLevel(0, false, () => true)
+
+    .addLevel(6, false, (client, msg) => msg.guild && msg.member.permissions.has('MANAGE_GUILD'))
+
+    .addLevel(7, false, (client, msg) => msg.guild && msg.member === msg.guild.owner)
+
+    .addLevel(9, true, (client, msg) => msg.author === client.owner)
+
+    .addLevel(10, false, (client, msg) => msg.author === client.owner);
+
