@@ -25,7 +25,7 @@ module.exports = class extends Command {
 
     var server = message.guild;
   
-    const embed = new Discord.RichEmbed()
+    const embed = new this.client.methods.Embed()
     .setThumbnail(server.iconURL)
     .setAuthor(server.name, server.iconURL)
     .addField('ID', server.id, true)
@@ -36,7 +36,7 @@ module.exports = class extends Command {
     .addField('Roles', server.roles.size, true)
     .setColor(0x00FF00)
     
-   message.channel.send({ embed });
+   .send({ embed })
 
     }
 
