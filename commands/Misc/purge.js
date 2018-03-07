@@ -25,7 +25,7 @@ module.exports = class extends Command {
         return (msg.channel.bulkDelete(amount, true), msg.reply(`**__${amount} mensajes eliminidos con éxito!__**`));
         const modLog = msg.guild.channels.find('name', 'log')
         msg.delete();
-      +const display = new RichDisplay(new this.client.methods.Embed()
+       const display = new RichDisplay(new this.client.methods.Embed()
        .setTimestamp()
        .addField('Action:', '***purge***')
        .addField('Purged By:', `${msg.author}`)
