@@ -33,10 +33,7 @@ module.exports = class extends Command {
        .setColor('RANDOM')
        .setFooter(`ServerID: ${msg.guild.id}`)
       );
-       for(var i = 0; i < 10; i++)
-	   display.addPage(template => template.setImage("http://lorempixel.com/400/200/"));
-        
-     return display.run(await msg.send("Loading slideshow..."))
+       return (msg.modLog.send({embed}))
     }
     async init() {
     }
