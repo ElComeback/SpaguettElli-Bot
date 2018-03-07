@@ -31,10 +31,10 @@ module.exports = class extends Command {
        const embed = new this.client.methods.Embed()
        .setTimestamp()
        .addField('Action:', '***purge***')
-       .addField('Purged By:', `${this.msg.author.username}`)
-       .addField('Purged Messages:', `**${amount}**`)
+       .addField('Purged By:', `${this.msg.author.username}`, true)
+       .addField('Purged Messages:', `**${amount}**`, true)
        .setColor('RANDOM')
-       .setFooter(`ServerID:, ${msg.guild.id}`)
+       .setFooter(`ServerID: ${msg.guild.id}`)
        return this.client.channels.get(modlogChannel).send({ embed })
     }
     async init() {
