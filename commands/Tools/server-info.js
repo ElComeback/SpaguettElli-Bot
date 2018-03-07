@@ -5,6 +5,7 @@ module.exports = class extends Command {
 	constructor(...args) {
 		super(...args, {
 			runIn: ['text'],
+			enabled: true,
 			aliases: ['guild'],
 			description: 'Get information on the current server.'
 		});
