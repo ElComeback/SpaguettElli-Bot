@@ -21,8 +21,8 @@ module.exports = class extends Command {
         });
     }
 
-    async run(msg, [...params]) {
- 
+    async run(msg, [message]) {
+
     var server = message.guild;
   
     const embed = new Discord.RichEmbed()
