@@ -1,7 +1,7 @@
 const token = process.env.BOT_TOKEN;
 const {Client, PermissionLevels} = require('klasa');
 //Inicio de Klasa--------------------------------------------------------------------------------------------------
-new Client({
+const client = new Client({
     clientOptions: {
         fetchAllMembers: true
     },
