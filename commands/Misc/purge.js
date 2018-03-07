@@ -32,9 +32,9 @@ module.exports = class extends Command {
        .setTimestamp()
        .addField('Action:', '***purge***')
        .addField('Purged By:', this.msg.author.name)
-       .addField('Purged Messages:', `**${amount}**`)
+       .addField('Purged Messages:', `**${this.amount}**`)
        .setColor('RANDOM')
-       .setFooter(`ServerID: ${msg.guild.id}`)
+       .setFooter(`ServerID:`, this.msg.guild.id)
        return this.client.channels.get(modlogChannel).send({ embed })
     }
     async init() {
