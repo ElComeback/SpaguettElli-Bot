@@ -1,5 +1,5 @@
 
-const { Command } = require('klasa');
+const {Command, RichDisplay} = require('klasa');
 const Discord = require('discord.js');
 
 module.exports = class extends Command {
@@ -23,21 +23,21 @@ module.exports = class extends Command {
 
     async run(msg, [amount, message]) {
         return msg.channel.bulkDelete(amount, true)
-        const message = await return msg.channel.send(`***__Eliminando ${args} mensajes. Por favor espere, esto podría tomar un rato...__***`)
-        const modLog = return msg.guild.channels.find('name', 'log')
+        const message = await msg.channel.send(`***__Eliminando ${args} mensajes. Por favor espere, esto podría tomar un rato...__***`)
+        const modLog = msg.guild.channels.find('name', 'log')
         return msg.channel.send(`:wastebasket: | **__${args} mensajes eliminados correctamente!__**`);
         message.delete();
         msg.delete();
-        const embed = new Discord.RichEmbed()
-       .setAuthor(`${msg.author.tag}`, `${msg.author.avatarURL}`)
+        const display = new RichDisplay(new this.client.methods.Embed()
+       .setAuthor(this.client.user.name, this.client.user.avatarURL)
        .setTimestamp()
        .addField('Action:', '***purge***')
        .addField('Purged By:', `${msg.author}`)
        .addField('Purged Messages:', `**${message}**`)
        .setColor('RANDOM')
        .setFooter(`ServerID: ${msg.guild.id}`)
-       return msg.guild.channels.get(modLog.id).send({
-       embed
+      );
+       return display.run(await msg.send("Mandando a #log..."))
     })
     }
     async init() {
