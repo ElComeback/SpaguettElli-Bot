@@ -13,7 +13,7 @@ module.exports = class extends Command {
             permLevel: 6,
             botPerms: ['MANAGE_MESSAGES'],
             requiredSettings: [],
-            description: 'Elimina una cantidad de mensajes dado por el usuario',
+            description: 'Elimina una cantidad de mensajes dada por el usuario',
             quotedStringSupport: false,
             usage: '<amount:int{2,100}>',
             usageDelim: undefined,
@@ -22,7 +22,7 @@ module.exports = class extends Command {
     }
 
     async run(msg, [amount, message]) {
-        return (msg.channel.bulkDelete(amount, true), msg.reply(`**__${amount} mensajes eliminidos con éxito!__**`));
+        return (msg.channel.bulkDelete(amount, true), msg.send(`**__¡${amount} mensajes eliminados con éxito!__**`));
         const modLog = msg.guild.channels.find('name', 'log')
         msg.delete();
        const embed = new this.client.methods.Embed()
