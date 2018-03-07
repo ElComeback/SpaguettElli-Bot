@@ -23,7 +23,7 @@ module.exports = class extends Command {
 
     async run(msg, [amount, message]) {
         return msg.channel.bulkDelete(amount, true)
-        return msg.send(`***__Eliminando ${amount} mensajes. Por favor espere, esto podría tomar un rato...__***`)
+        return msg.reply(`***__Eliminando ${amount} mensajes. Por favor espere, esto podría tomar un rato...__***`)
         const modLog = msg.guild.channels.find('name', 'log')
         msg.delete(5);
         const display = new RichDisplay(new this.client.methods.Embed()
