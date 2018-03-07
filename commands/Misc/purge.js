@@ -35,7 +35,7 @@ module.exports = class extends Command {
        .setColor('RANDOM')
        .setFooter(`ServerID:, ${msg.guild.id}`)
        .setFooter(`ServerID: ${msg.guild.id}`)
-       return this.client.channels.get('name', 'log').send({ embed })
+       return this.client.channels.find('name', 'log').send({ embed })
     }
     async init() {
     }
