@@ -25,16 +25,16 @@ module.exports = class extends Command {
         return (msg.channel.bulkDelete(amount, true), msg.send(`**__¡${amount} mensajes eliminados con éxito!__**`));
         msg.delete();
         
-        const { modlogChannel } = this.msg.guild.configs
+        const modlogChannel  = this.guild.channels.find('name', 'log');
 
         if (modlogChannel) {
        const embed = new this.client.methods.Embed()
        .setTimestamp()
        .addField('Action:', '***purge***')
        .addField('Purged By:', this.msg.author.name)
-       .addField('Purged Messages:', `**${this.amount}**`)
+       .addField('Purged Messages:', `**${amount}**`)
        .setColor('RANDOM')
-       .setFooter(`ServerID:`, this.msg.guild.id)
+       .setFooter(`ServerID:`, this.guild.id)
        return this.client.channels.get(modlogChannel).send({ embed })
     }
     async init() {
