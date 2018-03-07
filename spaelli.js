@@ -23,7 +23,7 @@ config.permissionLevels = new PermissionLevels()
 
     .addLevel(7, false, (client, msg) => msg.guild && msg.member === msg.guild.owner)
 
-    .addLevel(9, true, (client, msg) => msg.author === client.owner)
+    .add(9, (client, msg) => client.botDevs.includes(msg.author.id))
 
     .addLevel(10, false, (client, msg) => msg.author === client.owner);
 
