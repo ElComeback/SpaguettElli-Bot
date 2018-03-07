@@ -26,7 +26,7 @@ module.exports = class extends Command {
     const categories = Object.keys(help);
     const header = `
 <div id="header">
-  <img src='${this.client.user.avatarURL()}' alt='${this.client.user.username}'/>
+  <img src=`${this.client.user.avatarURL()}` alt=`${this.client.user.username}`/>
   <h1>${this.client.user.username}</h1>
 </div>
 `;
