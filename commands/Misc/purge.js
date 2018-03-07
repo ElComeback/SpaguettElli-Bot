@@ -15,17 +15,16 @@ module.exports = class extends Command {
             requiredSettings: [],
             description: 'Elimina una cantidad de mensajes dado por el usuario',
             quotedStringSupport: false,
-            usage: '<amount:int{2,999}>',
+            usage: '<amount:int{2,100}>',
             usageDelim: undefined,
             extendedHelp: 'No extended help available.'
         });
     }
 
     async run(msg, [amount, message]) {
-        return msg.channel.bulkDelete(amount, true)
-        return msg.reply(`***__Eliminando ${amount} mensajes. Por favor espere, esto podría tomar un rato...__***`)
+        return (msg.channel.bulkDelete(amount, true), msg.reply(`***__Eliminando ${amount} mensajes. Por favor espere, esto podría tomar un rato...__***`));
         const modLog = msg.guild.channels.find('name', 'log')
-        msg.delete(5);
+        msg.delete();
         const display = new RichDisplay(new this.client.methods.Embed()
        .setAuthor(this.client.user.name, this.client.user.avatarURL)
        .setTimestamp()
