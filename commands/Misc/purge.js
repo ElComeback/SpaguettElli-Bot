@@ -15,7 +15,7 @@ module.exports = class extends Command {
             requiredSettings: [],
             description: 'Elimina una cantidad de mensajes dado por el usuario',
             quotedStringSupport: false,
-            usage: '<amount:int{2,100}> [messsage:str] [...]',
+            usage: '<amount:int{2,999}>',
             usageDelim: undefined,
             extendedHelp: 'No extended help available.'
         });
@@ -23,9 +23,9 @@ module.exports = class extends Command {
 
     async run(msg, [amount, message]) {
         return msg.channel.bulkDelete(amount, true)
-        const message = await msg.channel.send(`***__Eliminando ${args} mensajes. Por favor espere, esto podría tomar un rato...__***`)
+        const message = await msg.channel.send(`***__Eliminando ${amount} mensajes. Por favor espere, esto podría tomar un rato...__***`)
         const modLog = msg.guild.channels.find('name', 'log')
-        return msg.channel.send(`:wastebasket: | **__${args} mensajes eliminados correctamente!__**`);
+        return msg.channel.send(`:wastebasket: | **__${amount} mensajes eliminados correctamente!__**`);
         message.delete();
         msg.delete();
         const display = new RichDisplay(new this.client.methods.Embed()
@@ -33,7 +33,7 @@ module.exports = class extends Command {
        .setTimestamp()
        .addField('Action:', '***purge***')
        .addField('Purged By:', `${msg.author}`)
-       .addField('Purged Messages:', `**${message}**`)
+       .addField('Purged Messages:', `**${amount}**`)
        .setColor('RANDOM')
        .setFooter(`ServerID: ${msg.guild.id}`)
       );
