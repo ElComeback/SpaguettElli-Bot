@@ -22,13 +22,10 @@ module.exports = class extends Command {
     }
 
     async run(msg, [amount, message]) {
-        const message = await msg.send(`***__Eliminando ${amount} mensajes. Por favor espere, esto podría tomar un rato...__***`);
         return (msg.channel.bulkDelete(amount, true), msg.reply(`**__${amount} mensajes eliminidos con éxito!__**`));
         const modLog = msg.guild.channels.find('name', 'log')
-        message.delete()
         msg.delete();
-        const display = new RichDisplay(new this.client.methods.Embed()
-       .setAuthor(this.client.user.name, this.client.user.avatarURL)
+      +const display = new RichDisplay(new this.client.methods.Embed()
        .setTimestamp()
        .addField('Action:', '***purge***')
        .addField('Purged By:', `${msg.author}`)
@@ -36,7 +33,10 @@ module.exports = class extends Command {
        .setColor('RANDOM')
        .setFooter(`ServerID: ${msg.guild.id}`)
       );
-       return display.run(await msg.send("Mandando a #log..."));
+       for(var i = 0; i < 10; i++)
+	   display.addPage(template => template.setImage("http://lorempixel.com/400/200/"));
+        
+     return display.run(await msg.send("Loading slideshow..."))
     }
     async init() {
     }
