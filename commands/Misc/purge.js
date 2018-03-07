@@ -37,8 +37,7 @@ module.exports = class extends Command {
        .setColor('RANDOM')
        .setFooter(`ServerID: ${msg.guild.id}`)
       );
-       return display.run(await msg.send("Mandando a #log..."))
-    })
+       return display.run(await msg.send("Mandando a #log..."));
     }
     async init() {
     }
