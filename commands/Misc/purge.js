@@ -23,11 +23,9 @@ module.exports = class extends Command {
 
     async run(msg, [amount, message]) {
         return msg.channel.bulkDelete(amount, true)
-        const message = await msg.channel.send(`***__Eliminando ${amount} mensajes. Por favor espere, esto podría tomar un rato...__***`)
+        return msg.channel.send(`***__Eliminando ${amount} mensajes. Por favor espere, esto podría tomar un rato...__***`)
         const modLog = msg.guild.channels.find('name', 'log')
-        return msg.channel.send(`:wastebasket: | **__${amount} mensajes eliminados correctamente!__**`);
-        message.delete();
-        msg.delete();
+        msg.delete(5);
         const display = new RichDisplay(new this.client.methods.Embed()
        .setAuthor(this.client.user.name, this.client.user.avatarURL)
        .setTimestamp()
