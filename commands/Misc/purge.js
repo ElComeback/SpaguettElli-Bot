@@ -31,7 +31,7 @@ module.exports = class extends Command {
        const embed = new this.client.methods.Embed()
        .setTimestamp()
        .addField('Action:', '***purge***')
-       .addField('Purged By:', this.msg.author.name)
+       .addField('Purged By:', this.msg.author.username)
        .addField('Purged Messages:', `**${amount}**`)
        .setColor('RANDOM')
        .setFooter(`ServerID:, ${msg.guild.id}`)
