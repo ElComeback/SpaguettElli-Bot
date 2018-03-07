@@ -1,10 +1,11 @@
 const { Command } = require('klasa');
+const Discord = require('discord.js');
 
 module.exports = class extends Command {
 
     constructor(...args) {
         super(...args, {
-            name: 'polifony',
+            name: 'serverinfo',
             enabled: true,
             runIn: ['text', 'dm', 'group'],
             cooldown: 0,
@@ -21,9 +22,7 @@ module.exports = class extends Command {
     }
 
     async run(msg, [...params]) {
-         client.on("message", (message) => {
- if(message.content.startsWith(PREFIX + "servidor")){
-
+ 
     var server = message.guild;
   
     const embed = new Discord.RichEmbed()
