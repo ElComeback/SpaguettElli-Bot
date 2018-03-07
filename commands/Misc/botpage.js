@@ -5,7 +5,7 @@ module.exports = class extends Command {
     super(...args, {
       guarded: true,
       description: "Generates HTML page of your commands",
-      permLevel: 9,
+      permLevel: 0,
       usage: "[nocss]"
     });
   }
