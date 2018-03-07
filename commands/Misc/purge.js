@@ -1,6 +1,5 @@
 
 const { Command } = require('klasa');
-const Discord = require('discord.js');
 
 module.exports = class extends Command {
     constructor(...args) {
@@ -12,7 +11,6 @@ module.exports = class extends Command {
             aliases: ['pr'],
             permLevel: 6,
             botPerms: ['MANAGE_MESSAGES'],
-            requiredSettings: [],
             description: 'Elimina una cantidad de mensajes dada por el usuario',
             quotedStringSupport: false,
             usage: '[limit:integer] [link|invite|bots|you|me|upload|user:user]',
