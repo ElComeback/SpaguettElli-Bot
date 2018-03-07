@@ -11,7 +11,7 @@ const client = new Client({
     cmdEditing: true,
     cmdLogging: true,
     typing: true,
-    laguage: ('es-MX'),
+    language: ('es-ES'),
     botDevs: ['131403526411780096', '285402109900226560'],
     readyMessage: (client) => `${client.user.tag}, Online en ${client.guilds.size} servidores y con ${client.users.size} usuarios`
 }).login(token);
