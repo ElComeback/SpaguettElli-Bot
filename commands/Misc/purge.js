@@ -22,8 +22,6 @@ module.exports = class extends Command {
     }
 
     async run(msg, [amount, message]) {
-        return (msg.channel.bulkDelete(amount, true), msg.send(`**__¡${amount} mensajes eliminados con éxito!__**`),
-        
         const embed = new this.client.methods.Embed()
        .addTitle('Action:', '***purge***')
        .addField('Purged By:', `${this.msg.author.username}`)
@@ -34,8 +32,8 @@ module.exports = class extends Command {
        .setTimestamp()
        .setFooter(`ServerID:, ${msg.guild.id}`)
        .setFooter(`ServerID: ${msg.guild.id}`)
-       return this.client.channels.get('399062303980519434').send({ embed })
-        );
+       return this.client.channels.get('399062303980519434').send({ embed });
+       return (msg.channel.bulkDelete(amount, true), msg.send(`**__¡${amount} mensajes eliminados con éxito!__**`));
        msg.delete();
     }
     async init() {
