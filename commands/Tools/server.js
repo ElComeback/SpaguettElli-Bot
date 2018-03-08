@@ -1,6 +1,6 @@
 const { Command, Timestamp } = require('klasa');
 
-module.exports = class extends Command {
+module.exports = structure extends Command {
 
 	constructor(...args) {
 		super(...args, {
