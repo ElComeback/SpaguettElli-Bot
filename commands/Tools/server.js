@@ -24,7 +24,7 @@ module.exports = class extends Command {
     const server = {
       name: guild.name,
       id: guild.id,
-      image: guild.iconURL(),
+      image: guild.iconURL,
       createdAt: guild.createdAt,
       botJoin: guild.joinedAt,
       region: guild.region.toUpperCase(),
@@ -83,7 +83,7 @@ module.exports = class extends Command {
       }).array().toString().replace(/,/g, '')
     }
     const embed = new this.client.methods.Embed()
-      .setAuthor(`${server.name} ID: ${server.id}`, guild.iconURL())
+      .setAuthor(`${server.name} ID: ${server.id}`, guild.iconURL)
       .setColor(0x3D85C6)
       .setThumbnail(server.image)
       .addField('General Info', `**Owner:**        ${server.owner}\n\n**Created:**     ${server.createdAt}\n\n**Bot Joined:** ${server.botJoin}\n\n**Roles:**       ${server.roles}`)
