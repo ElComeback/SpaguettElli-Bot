@@ -11,7 +11,6 @@ module.exports = class extends Command {
 			description: 'Get information on the current server.',
 			extendedHelp: 'No extended help available.'
 		});
-		this.timestamp = new Timestamp('d MMMM YYYY');
 	}
 
 	async run(msg, [Timestamp]) {
