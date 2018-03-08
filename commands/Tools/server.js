@@ -11,6 +11,7 @@ module.exports = class extends Command {
 			description: 'Get information on the current server.',
 			extendedHelp: 'No extended help available.'
 		});
+		this.timestamp = new Timestamp('d MMMM YYYY');
 	}
 
 	async run(msg) {
@@ -27,7 +28,6 @@ module.exports = class extends Command {
 			'No Role',
 			'Everyone'
 		];
-		this.timestamp = new Timestamp('d MMMM YYYY');
 		const serverInfo = new this.client.methods.Embed()
 			.setColor(0x00AE86)
 			.setThumbnail(msg.guild.iconURL())
