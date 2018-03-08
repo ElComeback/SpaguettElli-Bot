@@ -6,12 +6,9 @@ module.exports = class extends Command {
 		super(...args, {
 			name: 'server',
                         enabled: true,
-                        runIn: ['text', 'group'],
-                        cooldown: 5,
+                        runIn: ['text'],
                         botPerms: ['MANAGE_MESSAGES'],
-                        usageDelim: undefined,
-			runIn: ['text'],
-			aliases: ['guild'],
+			aliases: ['serverinfo'],
 			description: 'Get information on the current server.',
 			extendedHelp: 'No extended help available.'
 		});
