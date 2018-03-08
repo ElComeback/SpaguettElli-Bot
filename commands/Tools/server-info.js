@@ -4,9 +4,16 @@ module.exports = class extends Command {
 
 	constructor(...args) {
 		super(...args, {
+			name: 'server',
+                        enabled: true,
+                        runIn: ['text', 'group'],
+                        cooldown: 5,
+                        botPerms: ['MANAGE_MESSAGES'],
+                        usageDelim: undefined,
 			runIn: ['text'],
 			aliases: ['guild'],
-			description: 'Get information on the current server.'
+			description: 'Get information on the current server.',
+			extendedHelp: 'No extended help available.'
 		});
 		this.verificationLevels = [
 			'None',
