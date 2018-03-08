@@ -1,7 +1,6 @@
 const { Command, Timestamp } = require('klasa');
 
-module.exports = structure extends Command {
-
+module.exports = class extends Command {
 	constructor(...args) {
 		super(...args, {
 			name: 'server',
@@ -12,6 +11,9 @@ module.exports = structure extends Command {
 			description: 'Get information on the current server.',
 			extendedHelp: 'No extended help available.'
 		});
+	}
+
+	async run(msg) {
 		this.verificationLevels = [
 			'None',
 			'Low',
@@ -26,9 +28,6 @@ module.exports = structure extends Command {
 			'Everyone'
 		];
 		this.timestamp = new Timestamp('d MMMM YYYY');
-	}
-
-	async run(msg) {
 		const serverInfo = new this.client.methods.Embed()
 			.setColor(0x00AE86)
 			.setThumbnail(msg.guild.iconURL())
