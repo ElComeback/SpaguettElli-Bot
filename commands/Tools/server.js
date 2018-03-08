@@ -14,7 +14,8 @@ module.exports = class extends Command {
 		this.timestamp = new Timestamp('d MMMM YYYY');
 	}
 
-	async run(msg) {
+	async run(msg, [Timestamp]) {
+		this.timestamp = new Timestamp('d MMMM YYYY');
 		this.verificationLevels = [
 			'None',
 			'Low',
